@@ -1,13 +1,14 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(inloc, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.x = 100;
-    this.y = 300;
+    this.x = inloc[0];
+    this.y = inloc[1];
+    this.speed = speed;
 };
 
 // Update the enemy's position, required method for game
