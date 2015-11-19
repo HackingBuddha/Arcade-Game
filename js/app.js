@@ -6,7 +6,7 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.x = 200;
+    this.x = 100;
     this.y = 300;
 };
 
@@ -29,6 +29,8 @@ Enemy.prototype.render = function() {
 
 var Player = function() {
     this.sprite = 'images/enemy-bug.png';
+    this.x = 300;
+    this.y = 250;
 };
 
 Player.prototype.render = function() {
