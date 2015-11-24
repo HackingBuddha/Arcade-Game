@@ -46,7 +46,9 @@ Player.prototype.update = function() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-
+player.prototype.handleInput = function() {
+    
+};
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
