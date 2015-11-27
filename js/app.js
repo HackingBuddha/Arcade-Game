@@ -29,7 +29,7 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 var Player = function() {
-    this.sprite = 'images/enemy-bug.png';
+    this.sprite = 'images/char-boy.png';
     this.x = 300;
     this.y = 250;
 };
