@@ -18,6 +18,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x = (this.x + 101)*dt;
+    if (player.x this.x )
 };
 
 // Draw the enemy on the screen, required method for game
@@ -39,7 +40,7 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.update = function(dt, keypress) {
+Player.prototype.update = function(dt) {
 
 };
 
@@ -55,6 +56,11 @@ Player.prototype.handleInput = function(keycode, dt) {
     }
     else if (keycode === 'up' && this.y !== 0) {
         this.y = (this.y - 93)*dt;
+    }
+
+    if (this.y >= 93) {
+        this.x = 210;
+        this.y = 450;
     }
 };
 
