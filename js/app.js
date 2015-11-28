@@ -18,11 +18,15 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x = (this.x + 101)*dt;
-    if (player.x this.x )
+    if (player.x + 5 <= this.x && player.y + 5 <= this.y) {
+        player.x = 210;
+        player.y = 450;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
+
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
@@ -31,12 +35,14 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 var Player = function() {
+    
     this.sprite = 'images/char-boy.png';
     this.x = 210;
     this.y = 450;
 };
 
 Player.prototype.render = function() {
+
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
@@ -45,6 +51,7 @@ Player.prototype.update = function(dt) {
 };
 
 Player.prototype.handleInput = function(keycode, dt) {
+    
     if (keycode === 'left' && this.x !== 0) {
         this.x = (this.x - 101)*dt;
     }
@@ -69,14 +76,17 @@ Player.prototype.handleInput = function(keycode, dt) {
 // Place the player object in a variable called player
 
 var allEnemies = [];
+
 allEnemies[1] = new Enemy(0,95,200);
 allEnemies[2] = new Enemy(0,188,100);
 allEnemies[3] = new Enemy(0,281,50);
+
 var player = new Player();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
+
     var allowedKeys = {
         37: 'left',
         38: 'up',
