@@ -17,8 +17,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x = this.x + 
-
+    this.x = (this.x + 101)*dt;
 };
 
 // Draw the enemy on the screen, required method for game
@@ -55,7 +54,7 @@ player.prototype.handleInput = function() {
 var allEnemies = [];
 allEnemies[1] = new Enemy(0,95,200);
 allEnemies[2] = new Enemy(0,188,100);
-allEnemies[3] = new Enemy(0,281.50);
+allEnemies[3] = new Enemy(0,281,50);
 var player = new Player();
 
 // This listens for key presses and sends the keys to your
