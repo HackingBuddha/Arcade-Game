@@ -39,12 +39,23 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.update = function() {
+Player.prototype.update = function(dt, keypress) {
 
 };
 
-player.prototype.handleInput = function() {
-    
+Player.prototype.handleInput = function(keycode, dt) {
+    if (keycode === 'left' && this.x !== 0) {
+        this.x = (this.x - 101)*dt;
+    }
+    else if (keycode === 'right' && this.x !>= 404) {
+        this.x = (this.x + 101)*dt;
+    }
+    else if (keycode === 'down' && this.y !>= 450) {
+        this.y = (this.y + 93)*dt;
+    }
+    else if (keycode === 'up' && this.y !== 0) {
+        this.y = (this.y - 93)*dt;
+    }
 };
 
 // Now instantiate your objects.
