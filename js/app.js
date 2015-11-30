@@ -20,19 +20,43 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x += this.random*this.speed*dt;
     
+    // Change of the enemy lanes and speeds upon them reapearing on the game board
     if (this.x > 500) {
+
+        // Change the speed of the enemy
         var randomSpeedChange = Math.random();
         this.speed = randomSpeedChange*this.speed*3;
+
         if (this.speed < 100) {
             this.speed = 100;
         }
+
         if (this.speed > 500) {
             this.speed = 500
         }
         
+        // Change the lane of the enemy
+        var randomLaneChange = Math.random();
+
+        if (randomLaneChange <= 0.33) {
+            this.y -= 93;
+            if (this.y <= 62) {
+                this.y = 62;
+            }
+        }
+
+        else if (randomLaneChange > 0.66) {
+            this.y += 93;
+            if (this.y >= 228) {
+                this.y = 228;
+            }
+        }
+
+        // Reset the enemy on the left of the game board
         this.x = -100;
     }
 
+    // Player Enemy collision and reset of the player
     if (this.x === player.x) {
         player.x = 202;
         player.y = 400;
