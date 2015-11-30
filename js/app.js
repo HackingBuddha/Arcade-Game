@@ -10,10 +10,6 @@ var Enemy = function(xpos, ypos, speed) {
     this.y = ypos;
     this.speed = speed;
     this.random = Math.random()
-    if (this.x === player.x && this.y === player.y) {
-        player.x = 202;
-        player.y = 400;
-    }
 };
 
 // Update the enemy's position, required method for game
@@ -22,10 +18,24 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    
     this.x += this.random*this.speed*dt;
+    
     if (this.x > 500) {
+        var randomSpeedChange = Math.random();
+        this.speed = randomSpeedChange*this.speed*3;
+        if (this.speed < 100) {
+            this.speed = 100;
+        }
+        if (this.speed > 500) {
+            this.speed = 500
+        }
+        
         this.x = -100;
+    }
+
+    if (this.x === player.x) {
+        player.x = 202;
+        player.y = 400;
     }
 };
 
