@@ -18,8 +18,8 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x = this.x + 101*dt;
     if (player.x + 5 <= this.x && player.y + 5 <= this.y) {
-        player.x = 210;
-        player.y = 450;
+        player.x = 200;
+        player.y = 400;
     }   
 };
 
@@ -36,8 +36,8 @@ Enemy.prototype.render = function() {
 var Player = function() {
     
     this.sprite = 'images/char-boy.png';
-    this.x = 210;
-    this.y = 450;
+    this.x = 200;
+    this.y = 400;
 };
 
 Player.prototype.render = function() {
@@ -50,20 +50,36 @@ Player.prototype.update = function(dt) {
 
 Player.prototype.handleInput = function(key) {
     
-    if(key === 'left') {
+    if (key === 'left') {
         this.x -= 101;
     }
     
-    if(key === 'right') {
+    else if (key === 'right') {
         this.x += 101;
     }
 
-    if(key === 'up') {
+    else if (key === 'up') {
         this.y -= 83;
     }
 
-    if(key === 'down') {
+    else if (key === 'down') {
         this.y += 83;
+    }
+
+    if (this.x > 400) {
+        this.x = 400;
+    }
+
+    else if (this.x < 0) {
+        this.x = 0;
+    }
+
+    else if (this.y > 400) {
+        this.y = 400;
+    }
+
+    else if (this.y < 0) {
+        this.y = 0;
     }
 };
 
