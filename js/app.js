@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function(xpos, ypos, speed) {
+var Enemy = function(xpos, ypos) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -8,7 +8,6 @@ var Enemy = function(xpos, ypos, speed) {
     this.sprite = 'images/enemy-bug.png';
     this.x = xpos;
     this.y = ypos;
-    this.speed = speed;
 };
 
 // Update the enemy's position, required method for game
@@ -17,11 +16,11 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x = (this.x + 101)*dt;
+    this.x = this.x + 101*dt;
     if (player.x + 5 <= this.x && player.y + 5 <= this.y) {
         player.x = 210;
         player.y = 450;
-    }
+    }   
 };
 
 // Draw the enemy on the screen, required method for game
@@ -46,28 +45,25 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.update = function(dt) {
-
+Player.prototype.update = function(dt) {    
 };
 
-Player.prototype.handleInput = function(keycode, dt) {
+Player.prototype.handleInput = function(key) {
     
-    if (keycode === 'left' && this.x !== 0) {
-        this.x = (this.x - 101)*dt;
+    if(key === 'left') {
+        this.x -= 101;
     }
-    else if (keycode === 'right' && this.x !>= 404) {
-        this.x = (this.x + 101)*dt;
-    }
-    else if (keycode === 'down' && this.y !>= 450) {
-        this.y = (this.y + 93)*dt;
-    }
-    else if (keycode === 'up' && this.y !== 0) {
-        this.y = (this.y - 93)*dt;
+    
+    if(key === 'right') {
+        this.x += 101;
     }
 
-    if (this.y >= 93) {
-        this.x = 210;
-        this.y = 450;
+    if(key === 'up') {
+        this.y -= 83;
+    }
+
+    if(key === 'down') {
+        this.y += 83;
     }
 };
 
@@ -75,13 +71,9 @@ Player.prototype.handleInput = function(keycode, dt) {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-var allEnemies = [];
-
-allEnemies[1] = new Enemy(0,95,200);
-allEnemies[2] = new Enemy(0,188,100);
-allEnemies[3] = new Enemy(0,281,50);
-
 var player = new Player();
+
+var allEnemies = [new Enemy(0,95), new Enemy(0,188), new Enemy(0,281)];
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
