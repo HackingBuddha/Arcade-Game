@@ -47,6 +47,15 @@ Player.prototype.render = function() {
 
 Player.prototype.update = function() {
 
+    /*if (this.x === Enemy.x && this.y === Enemy.y) {
+        this.x = 202;
+        this.y = 400;
+    }*/
+
+    if (this.y < 50) {
+        this.x = 202;
+        this.y = 400;  
+    }
 };
 
 Player.prototype.handleInput = function(key) {
