@@ -9,6 +9,11 @@ var Enemy = function(xpos, ypos, speed) {
     this.x = xpos;
     this.y = ypos;
     this.speed = speed;
+    this.random = Math.random()
+    if (this.x === player.x && this.y === player.y) {
+        player.x = 202;
+        player.y = 400;
+    }
 };
 
 // Update the enemy's position, required method for game
@@ -17,7 +22,8 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x = this.x + this.speed*dt;
+    
+    this.x += this.random*this.speed*dt;
     if (this.x > 500) {
         this.x = -100;
     }
@@ -46,11 +52,6 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.update = function() {
-
-    /*if (this.x === Enemy.x && this.y === Enemy.y) {
-        this.x = 202;
-        this.y = 400;
-    }*/
 
     if (this.y < 50) {
         this.x = 202;
@@ -99,7 +100,7 @@ Player.prototype.handleInput = function(key) {
 
 var player = new Player();
 
-var allEnemies = [new Enemy(0,62,100), new Enemy(0,145,200), new Enemy(0,228,150)];
+var allEnemies = [new Enemy(0,62,300), new Enemy(0,145,500), new Enemy(0,228,400)];
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
