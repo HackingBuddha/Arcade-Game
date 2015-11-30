@@ -36,7 +36,7 @@ Enemy.prototype.render = function() {
 var Player = function() {
     
     this.sprite = 'images/char-boy.png';
-    this.x = 200;
+    this.x = 202;
     this.y = 400;
 };
 
@@ -46,7 +46,6 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.update = function() {
-
 
 };
 
@@ -91,7 +90,7 @@ Player.prototype.handleInput = function(key) {
 
 var player = new Player();
 
-var allEnemies = [new Enemy(0,50,100), new Enemy(0,150,200), new Enemy(0,250,150)];
+var allEnemies = [new Enemy(0,62,100), new Enemy(0,145,200), new Enemy(0,228,150)];
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
