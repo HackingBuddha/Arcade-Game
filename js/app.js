@@ -55,12 +55,6 @@ Enemy.prototype.update = function(dt) {
         // Reset the enemy on the left of the game board
         this.x = -100;
     }
-
-    // Player Enemy collision and reset of the player
-    if (this.x === player.x) {
-        player.x = 202;
-        player.y = 400;
-    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -76,8 +70,6 @@ Enemy.prototype.render = function() {
 var Player = function() {
     
     this.sprite = 'images/char-boy.png';
-    this.x = 202;
-    this.y = 400;
 };
 
 Player.prototype.render = function() {
@@ -88,10 +80,15 @@ Player.prototype.render = function() {
 Player.prototype.update = function() {
 
     if (this.y < 50) {
-        this.x = 202;
-        this.y = 400;  
+        this.reset();  
     }
 };
+
+Player.prototype.reset = function() {
+
+    this.x = 202;
+    this.y = 400;
+}
 
 Player.prototype.handleInput = function(key) {
     
