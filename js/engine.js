@@ -163,7 +163,7 @@ var Engine = (function(global) {
     function checkCollisions() {
         
         allEnemies.forEach(function(enemy) {
-            if(enemy.x - 73 < player.x && enemy.x + 73 > player.x && enemy.y - 65 < player.y && enemy.y + 65 > player.y) {
+            if(enemy.x - 60 < player.x && enemy.x + 60 > player.x && enemy.y - 60 < player.y && enemy.y + 60 > player.y) {
                 reset();   
             }
         });       
