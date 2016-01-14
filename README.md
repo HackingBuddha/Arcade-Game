@@ -1,6 +1,5 @@
-frontend-nanodegree-arcade-game
-===============================
+This is my Udacity Arcade Game project from the Front-End Nanodegree
 
-Students should use this rubric: https://www.udacity.com/course/viewer#!/c-ud015/l-3072058665/m-3072588797
+To use the App just download the files to your local machine and run index.html in your browser
 
-for self-checking their submission.
+Enjoy! :)
